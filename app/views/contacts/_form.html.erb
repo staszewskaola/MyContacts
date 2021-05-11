@@ -1,0 +1,48 @@
+<%= form_with(model: contact) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+        <% contact.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+
+    <%= form.text_field :first_name, class:"form-control", placeholder: "Name" %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :last_name, class:"form-control", placeholder: "Surname"  %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :email, class:"form-control" , placeholder: "email" %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :phone, class:"form-control" , placeholder: "phone"  %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :twitter, class:"form-control" , placeholder: "twitter"  %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.number_field :user_id, id: :contact_user_id, class:"form-control" , value: current_user.id, type:"hidden"  %>
+  </div>
+
+  <div class="actions form-group">
+    <br>
+    <%= form.submit class: 'btn btn-info' %>
+  </div>
+<% end %>

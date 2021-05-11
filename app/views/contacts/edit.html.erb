@@ -1,0 +1,7 @@
+<h1>Editing Contact</h1>
+
+<%= render 'form', contact: @contact %>
+<br>
+<%= link_to 'Show', @contact, class:"btn btn-info" %>
+<%= link_to 'Destroy', @contact, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Back', contacts_path , class:"btn btn-info" %>

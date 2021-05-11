@@ -1,0 +1,38 @@
+
+
+<h1>My Contacts</h1>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+    <%if contact.user == current_user %>
+      <tr>
+        <td>
+          <%= link_to  contact.first_name + ' ' + contact.last_name, contact %>
+
+        </td>
+
+        <td><%= contact.email %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.twitter %></td>
+
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact', new_contact_path, class:"btn btn-info" %>
